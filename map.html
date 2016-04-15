@@ -1,0 +1,69 @@
+<html>
+<head>
+
+<style>
+	#map 
+	{
+	  width: 90%;
+	  height: 600px;
+	  border: 1px solid #a0a0a0;
+	}
+
+</style>
+</head>
+<body>
+
+<div id="map">
+</div>
+
+
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true'></script>
+<script src='https://hpneo.github.io/gmaps/gmaps.js'></script>
+
+ <script>
+	var mapObj = new GMaps({
+	  zoom:15,	
+	  el: '#map',
+	  lat: 19.027069,
+	  lng: 72.838101
+	});
+	
+	//Path is a 2D array storing source to destination coordinates
+	var path =[
+	[19.027446, 72.836856],
+	[19.026452, 72.836491],
+	[19.025295, 72.835826],
+	[19.024403, 72.835311],
+	[19.023023, 72.834731],
+	[19.021664, 72.833787],
+	[19.020812, 72.833122],
+	[19.019737, 72.832242],
+	[19.020122, 72.831620],
+	[19.020772, 72.830912],
+	[19.021056, 72.830676]
+	];
+
+	var pl = mapObj.drawPolyline({ //to show route
+	  
+	  path: path,
+	  strokeColor: '#76ff03',
+	  strokeOpacity: 1,
+	  strokeWeight: 10
+	});
+	
+	mapObj.drawOverlay({ // to show source marker (overlay)
+	lat: 19.027446, 
+	lng: 72.836856,
+	content: '<div class="overlay"><img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/map-marker-icon.png" style="height:30px;width:30px;" /></div>'
+	});
+	
+	mapObj.drawOverlay({ // to show destination marker (overlay)
+	lat: 19.021056, 
+	lng: 72.830676,
+	content: '<div class="overlay"><img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/map-marker-icon.png" style="height:30px;width:30px;" /></div>'
+	
+	});
+	
+</script>
+</body>
+</html>
